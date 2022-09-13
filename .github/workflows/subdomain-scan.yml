@@ -6,7 +6,7 @@ name: Scan target for subdomains using amass
 on:
   workflow_dispatch:
     inputs:
-      cloudfail_target:
+      amass_target:
         description: "Target domain for subdomain scan"
         default: "owasp.org"
         required: true
@@ -35,7 +35,7 @@ jobs:
         if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
     - name: Scan target for subdomains using amass
       run: |
-       amass enum -active -brute -public-dns -d "${{ env.AMASS_TARGET }}"
+        amass enum -active -d "${{ env.AMASS_TARGET }}" -public-dns -brute
         
       env:
           AMASS_TARGET: ${{ inputs.amass_target }}
