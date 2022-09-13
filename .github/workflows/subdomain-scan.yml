@@ -38,4 +38,4 @@ jobs:
        amass enum -active -d "${{ env.AMASS_TARGET }}" -public-dns -brute
         
       env:
-          CLOUDFAIL_TARGET: ${{ inputs.amass_target }}
+          AMASS_TARGET: ${{ inputs.amass_target }}
