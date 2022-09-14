@@ -35,7 +35,7 @@ jobs:
         if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
     - name: Scan target for subdomains using amass
       run: |
-        amass enum -active -d "${{ env.AMASS_TARGET }}" -brute -w 
+        amass enum -active -d "${{ env.AMASS_TARGET }}" -public-dns -brute -w
         
       env:
           AMASS_TARGET: ${{ inputs.amass_target }}
